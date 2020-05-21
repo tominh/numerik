@@ -1,2 +1,2 @@
-# numerik
-program untuk metode numerik
+# Numerik
+Program Untuk Metode Numerik
