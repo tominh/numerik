@@ -32,10 +32,10 @@ print("Plot Untuk Metode Trapesium\n")
 for i in range(len(x)):
     if i == 0:
         plot = 0
-        print("Nilai plot saat X", i, x[i], "==>", plot)
+        print("Y saat X", i, x[i], "==>", plot)
     elif i != 0:
         plot = plot + (fungsi(x[i-1]) + fungsi(x[i]))*h/2
-        print("Nilai plot saat X", i, x[i], "==>", plot)
+        print("Y saat X", i, x[i], "==>", plot)
 
 # menampilkan plot fungsi dengan metode simpson
 print("="*50)
