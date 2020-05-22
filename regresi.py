@@ -3,6 +3,7 @@
 
 import numpy as np
 import matplotlib.pyplot as plt
+from scipy import stats
 
 # Variabel kosong bertipe array untuk menyimpan data x dan y
 x = []
@@ -23,6 +24,16 @@ if banyakData > 2:
         x.append(dataX)
         dataY = float(input('Y : '))
         y.append(dataY)
+
+    # gradien, titik potong sb y, faktor korelasi, dsb jangan tertukar urutan
+    slope, intercept, r, p, std_err = stats.linregress(x, y)
+
+    # fungsi untuk regresinya
+    def fungsi(x):
+        return slope*x + intercept
+
+    # pemodelan
+    pemodelan = list(map(fungsi, x))
 
     # Untuk mencacri Sy
     def Sy(a, b, c, d, e, f):
@@ -117,10 +128,12 @@ if banyakData > 2:
     print('titik potong sumbu Y :', titikPotong)
     print('ralat titik potong sumbu Y :', ralatTitikpotong)
     print('titik potong sumbu X :', titikPotongX)
+    print('faktor korelasi :', r)
     print('Y =', gradien, 'X + (', titikPotong, ')')
 
     # Untuk membuat grafik
     plt.scatter(x, y)
+    plt.plot(x, pemodelan)
     plt.grid(True)
     plt.show()
 
